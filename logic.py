@@ -1,3 +1,5 @@
+import math
+
 def calculate_mean(number_list):
     if len(number_list) == 0:
         raise ValueError
@@ -8,3 +10,18 @@ def calculate_mean(number_list):
             count = count+1
             ans += number
         return ans / count
+
+def calculate_standard_deviation(number_list):
+    if len(number_list) == 0:
+        raise ValueError
+    else:
+        mean = sum(number_list) / len(number_list)  # mean
+        var = sum(pow(x - mean, 2) for x in number_list) / len(number_list)  # variance
+        return math.sqrt(var)  # standard deviation
+
+def calculate_z_score(value, mean, standard_deviation):
+    if standard_deviation == 0:
+        raise ValueError
+    else:
+        result = (value - mean)/standard_deviation
+        return result
