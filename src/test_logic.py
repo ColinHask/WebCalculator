@@ -5,6 +5,7 @@ from logic import calculate_standard_deviation
 from logic import calculate_z_score
 
 
+
 def test_CalculateMean_NormalList_CorrectNumber():
     result = calculate_mean([1, 2, 3])
     assert result == 2
@@ -28,3 +29,12 @@ def test_CalculateZscore_NormalValues_CorrectNumber():
 def test_CalculateZscore_DivideBy0_ValueError():
     with pytest.raises(ValueError):
         calculate_z_score(2,6,0)
+
+
+if __name__ == '__main__':
+    test_CalculateMean_EmptyList_ValueError()
+    test_CalculateMean_NormalList_CorrectNumber()
+    test_CalculateStandardDeviation_EmptyList_ValueError()
+    test_CalculateStandardDeviation_NormalList_CorrectNumber()
+    test_CalculateZscore_NormalValues_CorrectNumber()
+    test_CalculateZscore_DivideBy0_ValueError()
