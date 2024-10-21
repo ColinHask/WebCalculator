@@ -50,6 +50,9 @@ def compute_single_linear_regression(xy_list):
 
     print(f"y = {m}x + {b}")
 
-
+def predict_y_from_linear_regression (x,m,b):
+    #y = mx + b
+    predicted_y = (m*x) + b
+    return predicted_y
 
 

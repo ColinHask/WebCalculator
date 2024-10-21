@@ -29,5 +29,11 @@ def test_CalculateZscore_DivideBy0_ValueError():
     with pytest.raises(ValueError):
         calculate_z_score(2,6,0)
 
+####
+
+def test_compute_single_linear_regression():
+
+
+def test_predict_y_from_linear_regression():
 
 
