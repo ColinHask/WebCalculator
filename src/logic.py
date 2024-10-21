@@ -27,7 +27,7 @@ def calculate_z_score(value, mean, standard_deviation):
         return result
 
 def compute_single_linear_regression(xy_list):
-    number_of_pairs = len(user_xy_values)
+    number_of_pairs = len(xy_list)
 
     total_x = 0
     for i in xy_list:
@@ -50,7 +50,7 @@ def compute_single_linear_regression(xy_list):
 
     print(f"y = {m}x + {b}")
 
-def predict_y_from_linear_regression (x,m,b):
+def predict_y_from_linear_regression(x,m,b):
     #y = mx + b
     predicted_y = (m*x) + b
     return predicted_y
