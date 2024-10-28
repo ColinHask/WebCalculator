@@ -1,6 +1,13 @@
 h1 {
     border: 2px #eee solid;
     color: brown;
+    text-align: left;
+    padding: 10px;
+}
+p{
+    border: 2px #eee solid;
+    background: bisque;
+    color: red;
     text-align: center;
     padding: 10px;
 }
