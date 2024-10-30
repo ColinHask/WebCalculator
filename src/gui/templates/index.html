@@ -8,10 +8,24 @@
 <body>
    <h1>WebCalculator <button type="button">Clear</button></h1>
    <p>Enter values below, then select an operation</p>
+   <form>
+       <form id="calculator-form" action="/calculate" method="post">
+       <input type="text" name="entry" placeholder="Enter entry" required>
+       <button type="button" onclick="submitForm('submit')">submit</button>
+   </form>
 
-    <form>
-  <label for="fname">Values</label><br>
-  <input type="text" id="fname" name="fname">
-    </form>
+    {% if entry is defined %}
+    <h2>Entry: {{ entry }}</h2>
+    {% endif %}
+
+   <script>
+        function submitForm(op) {
+            // Set the value of the hidden input to the selected operation
+            document.getElementById('operation').value = op;
+            // Submit the form
+            document.getElementById('calculator-form').submit();
+        }
+   </script>
+
 </body>
 </html>
