@@ -1,6 +1,6 @@
 import pytest
 
-# logic.py imports
+# statistics.py imports
 import statistics
 from statistics import mean
 from statistics import standard_deviation
