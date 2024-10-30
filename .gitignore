@@ -134,3 +134,6 @@ bandit.log
 # Other editors or IDEs
 *.sublime-project
 *.sublime-workspace
+
+
+.DS_Store

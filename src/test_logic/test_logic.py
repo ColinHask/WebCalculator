@@ -1,15 +1,13 @@
 import pytest
 
 # statistics.py imports
-import statistics
-from statistics import mean
-from statistics import standard_deviation
-from statistics import z_score
+from src.logic.statistics import mean
+from src.logic.statistics import standard_deviation
+from src.logic.statistics import z_score
 
 # regression.py imports
-import regression
-from regression import linear_regression
-from regression import predict_y
+from src.logic.regression import linear_regression
+from src.logic.regression import predict_y
 
 
 #######################################################################################
