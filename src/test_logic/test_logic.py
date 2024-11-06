@@ -39,10 +39,6 @@ def test_standard_deviation_empty_list():
         standard_deviation([])
 
 
-
-
-
-
 @pytest.mark.parametrize("tested_value, tested_mean, tested_standard_deviation, expected_z_score",
                          [(12, 8, 2, 2),
                           (7, 5, 1.5, 1.3333333333),
@@ -51,6 +47,7 @@ def test_z_score(tested_value, tested_mean, tested_standard_deviation, expected_
     actual_z_score = z_score(tested_value, tested_mean, tested_standard_deviation)
 
     assert actual_z_score == expected_z_score
+
 
 def test_z_score_empty_list():
     with pytest.raises(ValueError):
@@ -61,26 +58,25 @@ def test_z_score_empty_list():
 
 @pytest.mark.parametrize("tested_list, expected_slope, expected_y_intercept",
                          [([(1.47, 52.21), (1.5, 53.12), (1.52, 54.48), (1.55, 55.84), (1.57, 57.2), (1.6, 58.57),
-                          (1.63, 59.93), (1.65, 61.29), (1.68, 63.11), (1.7, 64.47), (1.73, 66.28), (1.75, 68.1),
-                          (1.78, 69.92), (1.8, 72.19), (1.83, 74.46)], 61.2721865421, -39.0619559188),
+                            (1.63, 59.93), (1.65, 61.29), (1.68, 63.11), (1.7, 64.47), (1.73, 66.28), (1.75, 68.1),
+                            (1.78, 69.92), (1.8, 72.19), (1.83, 74.46)], 61.2721865421, -39.0619559188),
                           ([(1, 2), (2, 3), (3, 4), (4, 5)], 1, 1), ([(1, 5), (2, 3), (3, 1), (4, -1)], -2, 7)])
 def test_linear_regression(tested_list, expected_slope, expected_y_intercept):
     actual_slope, actual_y_intercept = linear_regression(tested_list)
     assert round(actual_slope, 10) == round(expected_slope, 10)
     assert round(actual_y_intercept, 10) == round(expected_y_intercept, 10)
 
+
 def test_linear_regression_empty_list():
     with pytest.raises(ValueError):
         linear_regression([])
 
 
-def test_predict_y():
-    x_given_value = 1.535
-    m_slope = 61.272186542107434
-    b_intercept = -39.061955918838656
-
-    result = predict_y(x_given_value, m_slope, b_intercept)
-    assert result == 54.990850423296244
+@pytest.mark.parametrize("tested_x, tested_m, tested_b, expected_predicted_y", [(1.535, 61.2721865421, -39.0619559188, 54.9908504232),
+                                                          (3.14159, 2.71828, 0, 8.5397212652), (0, 12345, 2, 2)])
+def test_predict_y(tested_x, tested_m, tested_b, expected_predicted_y):
+    actual_predicted_y = predict_y(tested_x, tested_m, tested_b)
+    assert round(actual_predicted_y, 10) == round(expected_predicted_y, 10)
 
 
 def test_predict_y_empty_list():
