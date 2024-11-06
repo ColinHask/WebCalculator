@@ -12,10 +12,12 @@ from src.logic.regression import predict_y
 
 #######################################################################################
 
-
-def test_calculate_mean():
-    result = mean([1, 2, 3])
-    assert result == 2
+@pytest.mark.parametrize("tested_mean, expected_mean", [([4, 5, 6], 5), ([7, 8, 9], 8), ([10, 11, 12], 11)])
+def test_calculate_mean(tested_mean, expected_mean):
+    # act
+    actual_mean = mean(tested_mean)
+    # assert
+    assert actual_mean == expected_mean
 
 
 def test_calculate_mean_empty_list():
@@ -23,9 +25,13 @@ def test_calculate_mean_empty_list():
         mean([])
 
 
-def test_standard_deviation():
-    result = standard_deviation([1, 2, 3, 4, 5])
-    assert result == 1.4142135623730951
+@pytest.mark.parametrize("tested_standard_deviation, expected_standard_deviation",
+                         [([1, 2, 3, 4, 5], 1.4142135624), ([7, 8, 9], 0.8164965809), ([10, 15, 20], 4.0824829046)])
+def test_standard_deviation(tested_standard_deviation, expected_standard_deviation):
+    # act
+    actual_standard_deviation = round(standard_deviation(tested_standard_deviation), 10)
+    # assert
+    assert round(actual_standard_deviation, 10) == round(expected_standard_deviation, 10)
 
 
 def test_standard_deviation_empty_list():
@@ -33,10 +39,18 @@ def test_standard_deviation_empty_list():
         standard_deviation([])
 
 
-def test_z_score():
-    result = z_score(5, 3, 2)
-    assert result == 1
 
+
+
+
+@pytest.mark.parametrize("tested_value, tested_mean, tested_standard_deviation, expected_z_score",
+                         [(12, 8, 2, 2),
+                          (7, 5, 1.5, 1.3333333333),
+                          (15, 10, 3, 1.6666666666)])
+def test_z_score(tested_value, tested_mean, tested_standard_deviation, expected_z_score):
+    actual_z_score = z_score(tested_value, tested_mean, tested_standard_deviation)
+
+    assert actual_z_score == expected_z_score
 
 def test_z_score_empty_list():
     with pytest.raises(ValueError):
