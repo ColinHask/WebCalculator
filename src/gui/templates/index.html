@@ -8,12 +8,17 @@
 <body>
    <h1>WebCalculator <button type="button">Clear</button></h1>
    <p>Enter values below, then select an operation</p>
-   <form>
-       <form id="calculator-form" action="/calculate" method="post">
+
+   <form id="calculator-form" action="/calculate" method="post">
+
        <input type="text" name="entry" placeholder="Enter entry" required>
+       <!--this is where the input is stored-->
+        <input type="hidden" name="operation" id="operation">
+        <!-- submit button -->
        <button type="button" onclick="submitForm('submit')">submit</button>
    </form>
 
+   <!-- Display input variable for testing -->
     {% if entry is defined %}
     <h2>Entry: {{ entry }}</h2>
     {% endif %}
