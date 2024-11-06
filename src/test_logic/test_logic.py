@@ -59,17 +59,15 @@ def test_z_score_empty_list():
 
 #######################################################################################
 
-
-def test_linear_regression():
-    test_list = [(1.47, 52.21), (1.5, 53.12), (1.52, 54.48), (1.55, 55.84), (1.57, 57.2), (1.6, 58.57), (1.63, 59.93),
-                 (1.65, 61.29), (1.68, 63.11), (1.7, 64.47), (1.73, 66.28), (1.75, 68.1), (1.78, 69.92), (1.8, 72.19),
-                 (1.83, 74.46)]
-
-    expected_slope, expected_y_intercept = linear_regression(test_list)
-
-    assert round(expected_slope, 10) == round(61.272186542107434, 10)
-    assert round(expected_y_intercept, 10) == round(-39.061955918838656, 10)
-
+@pytest.mark.parametrize("tested_list, expected_slope, expected_y_intercept",
+                         [([(1.47, 52.21), (1.5, 53.12), (1.52, 54.48), (1.55, 55.84), (1.57, 57.2), (1.6, 58.57),
+                          (1.63, 59.93), (1.65, 61.29), (1.68, 63.11), (1.7, 64.47), (1.73, 66.28), (1.75, 68.1),
+                          (1.78, 69.92), (1.8, 72.19), (1.83, 74.46)], 61.2721865421, -39.0619559188),
+                          ([(1, 2), (2, 3), (3, 4), (4, 5)], 1, 1), ([(1, 5), (2, 3), (3, 1), (4, -1)], -2, 7)])
+def test_linear_regression(tested_list, expected_slope, expected_y_intercept):
+    actual_slope, actual_y_intercept = linear_regression(tested_list)
+    assert round(actual_slope, 10) == round(expected_slope, 10)
+    assert round(actual_y_intercept, 10) == round(expected_y_intercept, 10)
 
 def test_linear_regression_empty_list():
     with pytest.raises(ValueError):
