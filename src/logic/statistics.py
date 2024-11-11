@@ -2,6 +2,13 @@ import math
 
 
 def mean(number_list):
+    """
+    Takes a list of any real number elements and then calculates the mean by adding all the elements and dividing by
+    the number of them
+    """
+
+    # checking for empty list condition
+
     if len(number_list) == 0:
         raise ValueError
     else:
@@ -14,17 +21,35 @@ def mean(number_list):
 
 
 def standard_deviation(number_list):
+    """
+    Intakes a list of any numbers and calculates the mean from the mean function.
+    The mean is then used in the variance function. Finally, the square root of the variance
+    give the standard deviation
+    """
+    # checking for empty list condition
     if len(number_list) == 0:
         raise ValueError
     else:
-        mean = sum(number_list) / len(number_list)  # mean
-        var = sum(pow(x - mean, 2) for x in number_list) / len(number_list)  # variance
-        return math.sqrt(var)  # standard deviation
+        # using mean function defined above and then naming the variable avg for clarity
+        avg = mean(number_list)
+        total = 0
+        for i in number_list:
+            total += (number_list[i] - avg) ** 2
+        variance = (1 / len(number_list)) * total
+
+        # square root of variance is deviation according to formula
+        deviation = math.sqrt(variance)
+
+        return deviation
 
 
-def z_score(value, mean, standard_deviation):
+def z_score(value, average, variation):
+    """
+    Takes three inputs value, average (i.e., mean), and variation (i.e., standard deviation) and then returns the z score.
+    Chose a different synonym for mean and standard deviation due to methods having similar names
+    """
     if standard_deviation == 0:
         raise ValueError
     else:
-        result = (value - mean) / standard_deviation
+        result = (value - average) / variation
         return result
