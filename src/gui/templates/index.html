@@ -11,11 +11,19 @@
 
    <form id="calculator-form" action="/calculate" method="post">
 
-       <input type="text" name="entry" placeholder="Enter entry" required>
+{#       <input type="text" name="entry" placeholder="Enter entry" required>#}
+       <textarea name="entry" rows="4" cols="100" placeholder="Enter entry" required></textarea>
        <!--this is where the input is stored-->
         <input type="hidden" name="operation" id="operation">
+       <br><br>
         <!-- submit button -->
-       <button type="button" onclick="submitForm('submit')">submit</button>
+        <button type="button" onclick="submitForm('Add')">Add</button>
+        <br>
+        <button type="button" onclick="submitForm('Subtract')">Subtract</button>
+        <br>
+        <button type="button" onclick="submitForm('Multiply')">Multiply</button>
+        <br>
+        <button type="button" onclick="submitForm('Divide')">Divide</button>
    </form>
 
    <!-- Display input variable for testing -->

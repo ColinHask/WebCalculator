@@ -11,6 +11,13 @@ def index():
 def calculate():
     # get entry value
     entry = request.form.get('entry')
+    operation = request.form.get('operation')
+
+    # testing
+    print(entry)
+    # Debugging: Print the operation to console
+    print(f"Operation selected: {operation}")
+
 
     #render template with entry value submitted
     return render_template('index.html', entry=entry)

@@ -1,13 +1,26 @@
 h1 {
     border: 2px #eee solid;
-    color: brown;
+    color: #000000;
     text-align: left;
     padding: 10px;
 }
 p{
     border: 2px #eee solid;
     background: bisque;
-    color: red;
+    color: black;
+    text-align: left;
+    padding: 10px;
+}
+form{
+    border: 2px #eee solid;
+    color: brown;
+    text-align: center;
+    padding: 10px;
+}
+button{
+    border: 2px #eee solid;
+    background: #b8b8b8;
+    color: #000000;
     text-align: center;
     padding: 10px;
 }
