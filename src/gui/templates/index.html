@@ -6,8 +6,11 @@
     <title>Calculator</title>
 </head>
 <body>
-   <h1>WebCalculator <button type="button">Clear</button></h1>
+
+   <h1>WebCalculator    <button class ="right" type="button">Clear</button></h1>
+
    <p>Enter values below, then select an operation</p>
+
 
    <form id="calculator-form" action="/calculate" method="post">
 
@@ -17,13 +20,13 @@
         <input type="hidden" name="operation" id="operation">
        <br><br>
         <!-- submit button -->
-        <button type="button" onclick="submitForm('Add')">Add</button>
+        <button class="center" type="button" onclick="submitForm('Add')">Add</button>
         <br>
-        <button type="button" onclick="submitForm('Subtract')">Subtract</button>
+        <button class="center"  type="button" onclick="submitForm('Subtract')">Subtract</button>
         <br>
-        <button type="button" onclick="submitForm('Multiply')">Multiply</button>
+        <button class="center"  type="button" onclick="submitForm('Multiply')">Multiply</button>
         <br>
-        <button type="button" onclick="submitForm('Divide')">Divide</button>
+        <button class="center"  type="button" onclick="submitForm('Divide')">Divide</button>
    </form>
 
    <!-- Display input variable for testing -->
