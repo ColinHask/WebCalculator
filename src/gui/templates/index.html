@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Calculator</title>
+</head>
+<body>
+
+   <h1>WebCalculator    <button class ="right" type="button">Clear</button></h1>
+
+   <p>Enter values below, then select an operation</p>
+
+
+   <form id="calculator-form" action="/calculate" method="post">
+
+{#       <input type="text" name="entry" placeholder="Enter entry" required>#}
+       <textarea name="entry" rows="4" cols="100" placeholder="Enter entry" required></textarea>
+       <!--this is where the input is stored-->
+        <input type="hidden" name="operation" id="operation">
+       <br><br>
+        <!-- submit button -->
+        <button class="center" type="button" onclick="submitForm('mean')">Calculate Mean</button>
+        <br>
+        <button class="center"  type="button" onclick="submitForm('deviation')">Calculate Standard Deviation</button>
+        <br>
+        <button class="center"  type="button" onclick="submitForm('zscore')">Calculate Z Score</button>
+        <br>
+        <button class="center"  type="button" onclick="submitForm('regression')">Compute Single Linear Regression</button>
+        <br>
+        <button class="center"  type="button" onclick="submitForm('predict')">Predict Y From linear Regression</button>
+   </form>
+
+   <!-- Display input variable for testing -->
+    {% if entry is defined %}
+    <h2>entry: {{ entry }}</h2>
+    {% endif %}
+
+
+   <!-- Display result variable for testing -->
+    {% if entry is defined %}
+    <h2>result: {{ result }}</h2>
+    {% endif %}
+
+
+   <script>
+        function submitForm(op) {
+            // Set the value of the hidden input to the selected operation
+            document.getElementById('operation').value = op;
+            // Submit the form
+            document.getElementById('calculator-form').submit();
+        }
+   </script>
+
+</body>
+</html>
