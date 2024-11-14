@@ -61,4 +61,3 @@ def predict_y(x, m, b):
     except TypeError:
         # checking for non-numerical inputs
         raise ValueError("all user inputs have to be numbers")
-o

@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
-from shapely.ops import substring
-
-from src import logic
+#import logic functionalities from logic folder
+from src.logic import regression, statistics
 app = Flask(__name__)
 
 @app.route('/', methods = ['GET'])
@@ -13,72 +12,100 @@ def index():
 def calculate():
     # get entry value
     result = ""
+    #get needed values from html
     entry = request.form.get('entry')
     operation = request.form.get('operation')
 
     #split entry into list
     entry = entry.split("\n")
-    count = 0
+
+
+    # Debugging: Print the operation to console
+    print(f"Operation selected: {operation}")
 
     #try catch for input checking
     try:
         #turn list into int
+        count = 0
         for i in entry:
             entry[count] = int(i)
             count += 1
 
         #DEBUGGING PRINT
-        print(entry)
+        print("entry: "+str(entry))
 
         if operation == 'mean':
+            """
+            Takes a list of any real number elements and then calculates the mean by adding all the elements and dividing by
+            the number of them
+            """
             try:
-                result = logic.calculate_mean(entry)
+                result = statistics.mean(entry)
             except Exception as e:
-                result = "invalid entry" + str(e)
+                result = "invalid entry " + str(e)
+
         elif operation == 'deviation':
+            """
+            Intakes a list of any numbers and calculates the mean from the mean function.
+            The mean is then used in the variance function. Finally, the square root of the variance
+            give the standard deviation
+            """
             try:
-                result = logic.calculate_standard_deviation(entry)
+                result = statistics.standard_deviation(entry)
             except Exception as e:
-                result = "invalid entry" + str(e)
+                result = "invalid entry " + str(e)
+
         elif operation == 'zscore':
+            """
+            Takes three inputs value, average (i.e., mean), and variation (i.e., standard deviation) and then returns the z score.
+            Chose a different synonym for mean and standard deviation due to methods having similar names
+            """
             try:
                 # set variables for method call
                 value = entry[0]
-                mean = entry[1]
-                stand = entry[2]
-                result = logic.calculate_z_score(value, mean, stand)
+                average = entry[1]
+                variation = entry[2]
+                result = statistics.z_score(value, average, variation)
             except Exception as e:
-                result = "invalid entry" + str(e)
+                result = "invalid entry " + str(e)
+
         elif operation == 'regression':
+            """
+            intakes a list of number pairs (e.g., [(x1,y1),...,(xn,yn)]) and returns the estimated slope and
+            then uses the calculations of that slope to return the predicted y intercept
+            """
             try:
-                result = logic.compute_single_linear_regression(entry)
+                result = regression.linear_regression(entry)
             except Exception as e:
-                result = "invalid entry" + str(e)
+                result = "invalid entry " + str(e)
+
         elif operation == 'predict':
+            """
+            intakes three variables which I purposely named x, m and b since this calculation using form y = mx + b standard
+            linear polynomial equation. Finally, it returns the value of the function (i.e., y) using the slope, the x value
+            and the y intercept.
+            """
             try:
                 #set variables for method call
-                one = entry[0]
-                two = entry[1]
-                three = entry[2]
-                result = logic.predict_y_from_linear_regression(one, two, three)
+                x = entry[0]
+                m = entry[1]
+                b = entry[2]
+                result = regression.predict_y(x, m, b)
 
             except Exception as e:
-                result = "invalid entry" + str(e)
+                result = "invalid entry " + str(e)
         else:
             # should never run (invalid operation selected)
             # DEBUGGING PRINT
-            print("shit didnt work")
-            result = "how did we get here"
+            print("Invalid operation")
+            result = "Invalid operation (this shouldn't be possible)"
+
     except Exception as e:
         result = "invalid entry, please enter values as numbers"
 
-
     #testing
     # DEBUGGING PRINT
-    print(result)
-    # Debugging: Print the operation to console
-    print(f"Operation selected: {operation}")
-
+    print("result: " + str(result))
 
     #render template with entry and result value submitted
     return render_template('index.html', entry=entry,result=result)
