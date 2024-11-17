@@ -34,7 +34,7 @@ def standard_deviation(number_list):
         avg = mean(number_list)
         total = 0
         for i in number_list:
-            total += (number_list[i] - avg) ** 2
+            total += (i - avg) ** 2
         variance = (1 / len(number_list)) * total
 
         # square root of variance is deviation according to formula
