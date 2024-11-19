@@ -25,11 +25,26 @@ def calculate():
 
     #try catch for input checking
     try:
-        #turn list into int
-        count = 0
-        for i in entry:
-            entry[count] = int(i)
-            count += 1
+        if operation == "regression":
+            count = 0
+            # convert a list of strings num,num ex:"34,45" into a list of floats
+            for i in entry:
+                # split into list (2 strings)
+                entry[count] = i.split(",")
+                # convert items to floats
+                (entry[count])[0] = float((entry[count])[0])
+                (entry[count])[1] = float((entry[count])[1])
+                count += 1
+
+
+        else:
+                # turn list into int
+                count = 0
+                for i in entry:
+                    entry[count] = float(i)
+                    count += 1
+
+
 
         #DEBUGGING PRINT
         print("entry: "+str(entry))
@@ -102,6 +117,8 @@ def calculate():
 
     except Exception as e:
         result = "invalid entry, please enter values as numbers"
+        # DEBUGGING PRINT
+        print("invalid entry: " + str(entry))
 
     #testing
     # DEBUGGING PRINT
