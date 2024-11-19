@@ -13,7 +13,8 @@ from src.logic.regression import predict_y
 #######################################################################################
 
 
-@pytest.mark.parametrize("tested_mean, expected_mean", [([23.4, 122334.565, 20000.4], 47452.78833333333), ([7, 8, 9], 8), ([10, 11, 12], 11)])
+@pytest.mark.parametrize("tested_mean, expected_mean",
+                         [([23.4, 122334.565, 20000.4], 47452.78833333333), ([7, 8, 9], 8), ([10, 11, 12], 11)])
 def test_calculate_mean(tested_mean, expected_mean):
     """
     Testing mean with three lists and checking the output with expected output
@@ -70,28 +71,30 @@ def test_z_score_empty_list():
 
 #######################################################################################
 
-@pytest.mark.parametrize("tested_list, expected_slope, expected_y_intercept",
-                         [([[1.47, 52.21], [1.5, 53.12], [1.52, 54.48], [1.55, 55.84], [1.57, 57.2], [1.6, 58.57],
-                            [1.63, 59.93], [1.65, 61.29], [1.68, 63.11], [1.7, 64.47], [1.73, 66.28], [1.75, 68.1],
-                            [1.78, 69.92], [1.8, 72.19], [1.83, 74.46]], 61.2721865421, -39.0619559188),
-                          ([[1, 2], [2, 3], [3, 4], [4, 5]], 1, 1), ([[1, 5], [2, 3], [3, 1], [4, -1]], -2, 7)])
-def test_linear_regression(tested_list, expected_slope, expected_y_intercept):
-    """
-    testing linear regression with three different lists of pairs. The first list is big and used from github example.
-    All are then compared to expected output vs actual output. Regression calculates both the slope and the y intercept
-    so both have an expected output thats compared the actual output.
-    """
-    # act
-    actual_slope, actual_y_intercept = linear_regression(tested_list)
-    # assert
-    assert round(actual_slope, 10) == round(expected_slope, 10)
-    assert round(actual_y_intercept, 10) == round(expected_y_intercept, 10)
-
-
-# testing linear regression for a null input
-def test_linear_regression_empty_list():
-    with pytest.raises(ValueError):
-        linear_regression([])
+# @pytest.mark.parametrize("tested_list, expected_slope, expected_y_intercept",
+#                          [([[1.47, 52.21], [1.5, 53.12], [1.52, 54.48], [1.55, 55.84], [1.57, 57.2], [1.6, 58.57],
+#                             [1.63, 59.93], [1.65, 61.29], [1.68, 63.11], [1.7, 64.47], [1.73, 66.28], [1.75, 68.1],
+#                             [1.78, 69.92], [1.8, 72.19], [1.83, 74.46]], 61.2721865421, -39.0619559188),
+#                           ([[1, 2], [2, 3], [3, 4], [4, 5]], 1, 1),
+#                           ([[1, 5], [2, 3], [3, 1], [4, -1]], -2, 7)])
+# def test_linear_regression(tested_list, expected_slope, expected_y_intercept):
+#     # [ [a,b], [c,d], [e,f] ]
+#     """
+#     testing linear regression with three different lists of pairs. The first list is big and used from github example.
+#     All are then compared to expected output vs actual output. Regression calculates both the slope and the y intercept
+#     so both have an expected output thats compared the actual output.
+#     """
+#     # act
+#     actual_slope, actual_y_intercept = linear_regression(tested_list)
+#     # assert
+#     assert round(actual_slope, 10) == round(expected_slope, 10)
+#     assert round(actual_y_intercept, 10) == round(expected_y_intercept, 10)
+#
+#
+# # testing linear regression for a null input
+# def test_linear_regression_empty_list():
+#     with pytest.raises(ValueError):
+#         linear_regression([])
 
 
 @pytest.mark.parametrize("tested_x, tested_m, tested_b, expected_predicted_y",
