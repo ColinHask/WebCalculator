@@ -41,7 +41,7 @@ def linear_regression(xy_list):
         # using slope equation, the y intercept is calculated
         y_intercept = average_y - estimated_slope * average_x
 
-        equation = estimated_slope + "x +" + y_intercept
+        equation ="y = " + str(estimated_slope) + " x + " + str(y_intercept)
         return equation
 
     except ZeroDivisionError:
