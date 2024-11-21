@@ -9,7 +9,9 @@
 
    <h1>WebCalculator<button class ="right" type="button">Clear</button></h1>
 
-   <p>Enter values below, then select an operation</p>
+
+
+   <p id = "MsgBoard">{{ result }}</p>
 
 
    <form id="calculator-form" action="/calculate" method="post">
@@ -50,6 +52,7 @@
             // Submit the form
             document.getElementById('calculator-form').submit();
         }
+
    </script>
 
 </body>

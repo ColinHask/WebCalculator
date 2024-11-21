@@ -1,17 +1,20 @@
+from django.db.models.expressions import result
 from flask import Flask, render_template, request
+
 #import logic functionalities from logic folder
 from src.logic import regression, statistics
 app = Flask(__name__)
 
-@app.route('/', methods = ['GET'])
+@app.route('/', methods = ['GET','POST'])
 def index():
     # initially render html
-    return render_template('index.html')
+    result_default = "Enter values below, then select an operation"
+    return render_template('index.html', result = result_default)
 
 @app.route('/calculate', methods = ['POST'])
 def calculate():
     # get entry value
-    result = ""
+    result = "Enter values below, then select an operation"
     #get needed values from html
     entry = request.form.get('entry')
     operation = request.form.get('operation')
