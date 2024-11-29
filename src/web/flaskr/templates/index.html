@@ -24,21 +24,22 @@
    <p id = "MsgBoard" ><strong>{{ msgHeader }}</strong> <br> {{ result }}</p>
 
         {#   Input box   #}
-       <textarea name="entry" rows="4" cols="100" placeholder="Enter values here" required></textarea>
+    <h3><strong>Values</strong></h3>
+       <textarea name="entry" rows="4" cols="60" placeholder="Enter values here" required></textarea>
 
        <br><br>
 
         <!-- submit buttons -->
     <h2><strong>Descriptive Statistics</strong></h2>
-        <br>
-        <button class="center"  type="button" onclick="submitForm('Population Standard Deviation')">Calculate Population Standard Deviation | one value per line</button>
+
+        <button class="center"  type="button" onclick="submitForm('Population Standard Deviation')">Compute Population Standard Deviation | one value per line</button>
         <br>
         <button class="center" type="button" onclick="submitForm('Mean')">Compute Mean | one value per line</button>
         <br>
         <button class="center"  type="button" onclick="submitForm('Z-Score')">Compute Z Score | one value per line</button>
         <br>
     <h2><strong>Single Linear Regression</strong></h2>
-        <br>
+
         <button class="center"  type="button" onclick="submitForm('Single Linear Regression Formula:')">Compute Single Linear Regression Formula | one x,y pair per line</button>
         <br>
         <button class="center"  type="button" onclick="submitForm('Single Linear Regression Prediction')">Predict Y From linear Regression Formula | x, m, b on one line</button>

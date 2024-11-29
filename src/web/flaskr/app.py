@@ -143,6 +143,7 @@ def calculate():
             print("Invalid operation")
             result = "Invalid operation (this shouldn't be possible)"
 
+    # executes if error occurs due to user input
     except Exception as e:
         error_state = True
         result = "invalid entry, please enter values as numbers"

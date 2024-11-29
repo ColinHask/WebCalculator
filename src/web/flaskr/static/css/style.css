@@ -1,39 +1,44 @@
 body{
-    margin-left: 180px;
-    margin-right: 180px;
+    margin-left: 28%;
+    margin-right: 28%;
     border-style: solid;
+    border-color: #ffffff;
+    font-family: Helvetica, sans-serif;
 }
 .parent {
   horiz-align: left;
 }
 .child1 {
+    font-weight: normal;
     display: inline-block;
     color: #000000;
     text-align: left;
     padding: 10px;
-    padding-right: 150px;
+    padding-right: 20%;
     vertical-align: middle;
 }
 .child2 {
-    display: inline-block;
-    vertical-align: middle;
-    border: 2px #000000 solid;
-    border-radius: 10px;
+    display: inline-block; /* Keeps the button inline */
+    border: 1.5px #000000 solid;
+    border-radius: 5px;
     background: #EBEBEB;
     color: #000000;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    padding-right:150px;
-    padding-left:150px;
+    text-align: center; /* Center the text inside the button */
+    padding: 5px; /* Consistent padding */
+    width: 40%; /* Takes up 40% of the body width */
+    margin-left: auto; /* Pushes the button to the right */
+    margin-right: 0; /* Align to the right edge */
+    box-sizing: border-box; /* Ensure width includes padding and border */
 }
 
 
 p{
     border: 2px #eee solid;
-    background: bisque;
+    background: #FFECD7;
     color: black;
     text-align: center;
     padding: 10px;
+    padding-bottom: 15px;
 }
 form{
     border: 2px #eee solid;
@@ -41,16 +46,16 @@ form{
     text-align: left;
     padding: 10px;
 }
-button{
-    border: 2px #000000 solid;
-    border-radius: 10px;
+button {
+    border: 1.5px #000000 solid;
+    border-radius: 5px;
     background: #EBEBEB;
     color: #000000;
-    margin-bottom: 5px;
-    padding-bottom: 10px;
-    padding-top: 12px;
-    padding-right:150px;
-    padding-left:150px;
+    margin-bottom: 2%;
+    padding: 0.7%; /* Unified padding for top and bottom */
+    width: 100%; /* Make button take the full width of its container */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    text-align: center; /* Center the text inside the button */
 }
 .center{
     text-align: center;
