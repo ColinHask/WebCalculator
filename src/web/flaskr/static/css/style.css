@@ -3,13 +3,30 @@ body{
     margin-right: 180px;
     border-style: solid;
 }
-
-h1{
-    border: 2px #eee solid;
+.parent {
+  horiz-align: left;
+}
+.child1 {
+  display: inline-block;
     color: #000000;
     text-align: left;
     padding: 10px;
+    padding-right: 150px;
+  vertical-align: middle;
 }
+.child2 {
+  display: inline-block;
+  vertical-align: middle;
+    border: 2px #eee solid;
+    background: #b8b8b8;
+    color: #000000;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right:150px;
+    padding-left:150px;
+}
+
+
 p{
     border: 2px #eee solid;
     background: bisque;

@@ -26,6 +26,10 @@ def calculate():
     # Debugging: Print the operation to console
     print(f"Operation selected: {operation}")
 
+    # clear operation check before input handling
+    if operation == "clear":
+        return render_template('index.html', result = result)
+
     #try catch for input checking
     try:
         if operation == "regression":
@@ -112,6 +116,7 @@ def calculate():
 
             except Exception as e:
                 result = "invalid entry " + str(e)
+
         else:
             # should never run (invalid operation selected)
             # DEBUGGING PRINT

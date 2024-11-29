@@ -7,21 +7,28 @@
 </head>
 <body>
 
-   <h1>WebCalculator<button class ="right" type="button">Clear</button></h1>
+<form id="calculator-form" action="/calculate" method="post">
 
+
+    <!--this is where the input is stored-->
+    <input type="hidden" name="operation" id="operation">
+
+
+{#    Title with button included    #}
+    <div class='parent'>
+  <h1 class='child1'>WebCalculator</h1>
+  <button class='child2' type="button" onclick="submitForm('clear')">Clear</button>
+   </div>
 
 
    <p id = "MsgBoard">{{ result }}</p>
 
-
-   <form id="calculator-form" action="/calculate" method="post">
-
-{#       <input type="text" name="entry" placeholder="Enter entry" required>#}
+        {#   Input box   #}
        <textarea name="entry" rows="4" cols="100" placeholder="Enter entry" required></textarea>
-       <!--this is where the input is stored-->
-        <input type="hidden" name="operation" id="operation">
+
        <br><br>
-        <!-- submit button -->
+
+        <!-- submit buttons -->
         <button class="center" type="button" onclick="submitForm('mean')">Calculate Mean</button>
         <br>
         <button class="center"  type="button" onclick="submitForm('deviation')">Calculate Standard Deviation</button>
