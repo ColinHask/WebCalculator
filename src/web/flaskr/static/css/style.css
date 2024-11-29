@@ -37,8 +37,8 @@ p{
 }
 form{
     border: 2px #eee solid;
-    color: brown;
-    text-align: center;
+    color: #000000;
+    text-align: left;
     padding: 10px;
 }
 button{

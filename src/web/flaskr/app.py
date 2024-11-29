@@ -22,16 +22,16 @@ def calculate():
     #default state false
     error_state = False
 
+    #header for result / message board
+    msg_header = ""
+
     #get needed values from html
     entry = request.form.get('entry')
     operation = request.form.get('operation')
 
-    #split entry into list
-    entry = entry.split("\n")
-
-
     # Debugging: Print the operation to console
     print(f"Operation selected: {operation}")
+
 
     # clear operation check before input handling
     if operation == "clear":
@@ -39,7 +39,15 @@ def calculate():
 
     #try catch for input checking
     try:
-        if operation == "regression":
+
+        if operation == "Single Linear Regression Prediction":
+            # split entry into list by commas
+            entry = entry.split(',')
+        else:
+            # split entry into list by new line
+            entry = entry.split("\n")
+
+        if operation == "Single Linear Regression Formula:":
             count = 0
             # convert a list of strings num,num ex:"34,45" into a list of floats
             for i in entry:
@@ -49,7 +57,6 @@ def calculate():
                 (entry[count])[0] = float((entry[count])[0])
                 (entry[count])[1] = float((entry[count])[1])
                 count += 1
-
 
         else:
                 # turn list into int
@@ -63,7 +70,7 @@ def calculate():
         #DEBUGGING PRINT
         print("entry: "+str(entry))
 
-        if operation == 'mean':
+        if operation == 'Mean':
             """
             Takes a list of any real number elements and then calculates the mean by adding all the elements and dividing by
             the number of them
@@ -74,7 +81,7 @@ def calculate():
                 error_state = True
                 result = "invalid entry " + str(e)
 
-        elif operation == 'deviation':
+        elif operation == 'Population Standard Deviation':
             """
             Intakes a list of any numbers and calculates the mean from the mean function.
             The mean is then used in the variance function. Finally, the square root of the variance
@@ -86,7 +93,7 @@ def calculate():
                 error_state = True
                 result = "invalid entry " + str(e)
 
-        elif operation == 'zscore':
+        elif operation == 'Z-Score':
             """
             Takes three inputs value, average (i.e., mean), and variation (i.e., standard deviation) and then returns the z score.
             Chose a different synonym for mean and standard deviation due to methods having similar names
@@ -101,7 +108,7 @@ def calculate():
                 error_state = True
                 result = "invalid entry " + str(e)
 
-        elif operation == 'regression':
+        elif operation == 'Single Linear Regression Formula:':
             """
             intakes a list of number pairs (e.g., [(x1,y1),...,(xn,yn)]) and returns the estimated slope and
             then uses the calculations of that slope to return the predicted y intercept
@@ -112,7 +119,7 @@ def calculate():
                 error_state = True
                 result = "invalid entry " + str(e)
 
-        elif operation == 'predict':
+        elif operation == 'Single Linear Regression Prediction':
             """
             intakes three variables which I purposely named x, m and b since this calculation using form y = mx + b standard
             linear polynomial equation. Finally, it returns the value of the function (i.e., y) using the slope, the x value
@@ -146,5 +153,12 @@ def calculate():
     # DEBUGGING PRINT
     print("result: " + str(result))
 
+    if error_state:
+        msg_header = "Invalid Input"
+    else:
+        msg_header = operation
+
+
+
     #render template with entry and result value submitted
-    return render_template('index.html', entry=entry, result=result, error=error_state)
+    return render_template('index.html', msgHeader=msg_header, result=result, error=error_state)
