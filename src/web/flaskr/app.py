@@ -1,8 +1,8 @@
 from django.db.models.expressions import result
 from flask import Flask, render_template, request
 
-#import logic functionalities from logic folder
-from src.logic import regression, statistics
+#import calculator_logic functionalities from calculator_logic folder
+from src.calculator_logic import regression, statistics
 app = Flask(__name__)
 
 @app.route('/', methods = ['GET','POST'])
