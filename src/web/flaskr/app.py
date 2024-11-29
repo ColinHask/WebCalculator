@@ -9,12 +9,19 @@ app = Flask(__name__)
 def index():
     # initially render html
     result_default = "Enter values below, then select an operation"
-    return render_template('index.html', result = result_default)
+    return render_template('index.html', result = result_default, error=False)
 
 @app.route('/calculate', methods = ['POST'])
 def calculate():
-    # get entry value
+
+    #result variable is the exact output to user
+    #used for the result of the operation OR the error message to the user
     result = "Enter values below, then select an operation"
+
+    #used by HTML to render error state visuals
+    #default state false
+    error_state = False
+
     #get needed values from html
     entry = request.form.get('entry')
     operation = request.form.get('operation')
@@ -28,7 +35,7 @@ def calculate():
 
     # clear operation check before input handling
     if operation == "clear":
-        return render_template('index.html', result = result)
+        return render_template('index.html', result = result, error = False)
 
     #try catch for input checking
     try:
@@ -64,6 +71,7 @@ def calculate():
             try:
                 result = statistics.mean(entry)
             except Exception as e:
+                error_state = True
                 result = "invalid entry " + str(e)
 
         elif operation == 'deviation':
@@ -75,6 +83,7 @@ def calculate():
             try:
                 result = statistics.standard_deviation(entry)
             except Exception as e:
+                error_state = True
                 result = "invalid entry " + str(e)
 
         elif operation == 'zscore':
@@ -89,6 +98,7 @@ def calculate():
                 variation = entry[2]
                 result = statistics.z_score(value, average, variation)
             except Exception as e:
+                error_state = True
                 result = "invalid entry " + str(e)
 
         elif operation == 'regression':
@@ -99,6 +109,7 @@ def calculate():
             try:
                 result = regression.linear_regression(entry)
             except Exception as e:
+                error_state = True
                 result = "invalid entry " + str(e)
 
         elif operation == 'predict':
@@ -115,15 +126,18 @@ def calculate():
                 result = regression.predict_y(x, m, b)
 
             except Exception as e:
+                error_state = True
                 result = "invalid entry " + str(e)
 
         else:
             # should never run (invalid operation selected)
             # DEBUGGING PRINT
+            error_state = True
             print("Invalid operation")
             result = "Invalid operation (this shouldn't be possible)"
 
     except Exception as e:
+        error_state = True
         result = "invalid entry, please enter values as numbers"
         # DEBUGGING PRINT
         print("invalid entry: " + str(entry))
@@ -133,4 +147,4 @@ def calculate():
     print("result: " + str(result))
 
     #render template with entry and result value submitted
-    return render_template('index.html', entry=entry,result=result)
+    return render_template('index.html', entry=entry, result=result, error=error_state)

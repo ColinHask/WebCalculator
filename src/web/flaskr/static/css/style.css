@@ -7,18 +7,19 @@ body{
   horiz-align: left;
 }
 .child1 {
-  display: inline-block;
+    display: inline-block;
     color: #000000;
     text-align: left;
     padding: 10px;
     padding-right: 150px;
-  vertical-align: middle;
+    vertical-align: middle;
 }
 .child2 {
-  display: inline-block;
-  vertical-align: middle;
-    border: 2px #eee solid;
-    background: #b8b8b8;
+    display: inline-block;
+    vertical-align: middle;
+    border: 2px #000000 solid;
+    border-radius: 10px;
+    background: #EBEBEB;
     color: #000000;
     padding-bottom: 10px;
     padding-top: 10px;
@@ -41,11 +42,13 @@ form{
     padding: 10px;
 }
 button{
-    border: 2px #eee solid;
-    background: #b8b8b8;
+    border: 2px #000000 solid;
+    border-radius: 10px;
+    background: #EBEBEB;
     color: #000000;
+    margin-bottom: 5px;
     padding-bottom: 10px;
-    padding-top: 10px;
+    padding-top: 12px;
     padding-right:150px;
     padding-left:150px;
 }

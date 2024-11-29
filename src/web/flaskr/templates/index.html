@@ -21,7 +21,7 @@
    </div>
 
 
-   <p id = "MsgBoard">{{ result }}</p>
+   <p id = "MsgBoard" >{{ result }}</p>
 
         {#   Input box   #}
        <textarea name="entry" rows="4" cols="100" placeholder="Enter entry" required></textarea>
@@ -40,19 +40,33 @@
         <button class="center"  type="button" onclick="submitForm('predict')">Predict Y From linear Regression</button>
    </form>
 
-   <!-- Display input variable for testing -->
-    {% if entry is defined %}
-    <h2>entry: {{ entry }}</h2>
-    {% endif %}
-
-
-   <!-- Display result variable for testing -->
-    {% if entry is defined %}
-    <h2>result: {{ result }}</h2>
-    {% endif %}
+{#   <!-- Display input variable for testing -->#}
+{#    {% if entry is defined %}#}
+{#    <h2>entry: {{ entry }}</h2>#}
+{#    {% endif %}#}
+{##}
+{##}
+{#   <!-- Display result variable for testing -->#}
+{#    {% if entry is defined %}#}
+{#    <h2>result: {{ result }}</h2>#}
+{#    {% endif %}#}
 
 
    <script>
+
+       // Pass the server-side 'error' variable to JavaScript
+       var error = {{ error|tojson }};
+
+        function setMsgRedIfError() {
+            if(error){
+            const element = document.getElementById("MsgBoard");
+            // Change the color of the element
+            element.style.color = "#FFFFFF";
+            element.style.backgroundColor = "#B70F0A";
+            }
+        }
+
+
         function submitForm(op) {
             // Set the value of the hidden input to the selected operation
             document.getElementById('operation').value = op;
@@ -60,6 +74,7 @@
             document.getElementById('calculator-form').submit();
         }
 
+        setMsgRedIfError()
    </script>
 
 </body>
