@@ -21,7 +21,15 @@
    </div>
 
 
-   <p id = "MsgBoard" ><strong>{{ msgHeader }}</strong> <br> {{ result }}</p>
+        {# msgBoard header line only exists if header exists#}
+        <p id="MsgBoard">
+          <strong>
+            {% if msgHeader %}
+              {{ msgHeader }}<br>
+            {% endif %}
+          </strong>
+          {{ result }}
+        </p>
 
         {#   Input box   #}
     <h3><strong>Values</strong></h3>
@@ -36,26 +44,14 @@
         <br>
         <button class="center" type="button" onclick="submitForm('Mean')">Compute Mean | one value per line</button>
         <br>
-        <button class="center"  type="button" onclick="submitForm('Z-Score')">Compute Z Score | one value per line</button>
+        <button class="center"  type="button" onclick="submitForm('Z-Score')">Compute Z Score | value, mean, stdDev on one line</button>
         <br>
     <h2><strong>Single Linear Regression</strong></h2>
 
         <button class="center"  type="button" onclick="submitForm('Single Linear Regression Formula:')">Compute Single Linear Regression Formula | one x,y pair per line</button>
         <br>
-        <button class="center"  type="button" onclick="submitForm('Single Linear Regression Prediction')">Predict Y From linear Regression Formula | x, m, b on one line</button>
+        <button class="center"  type="button" onclick="submitForm('Single Linear Regression Prediction')">Predict Y From Linear Regression Formula | x, m, b on one line</button>
    </form>
-
-{#   <!-- Display input variable for testing -->#}
-{#    {% if entry is defined %}#}
-{#    <h2>entry: {{ entry }}</h2>#}
-{#    {% endif %}#}
-{##}
-{##}
-{#   <!-- Display result variable for testing -->#}
-{#    {% if entry is defined %}#}
-{#    <h2>result: {{ result }}</h2>#}
-{#    {% endif %}#}
-
 
    <script>
 

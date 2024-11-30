@@ -1,5 +1,7 @@
-from django.db.models.expressions import result
+from sys import exception
+
 from flask import Flask, render_template, request
+
 
 #import calculator_logic functionalities from calculator_logic folder
 from src.calculator_logic import regression, statistics
@@ -40,9 +42,14 @@ def calculate():
     #try catch for input checking
     try:
 
-        if operation == "Single Linear Regression Prediction":
+        #remove any spaces from input
+        entry.replace(" ", "")
+
+        if operation == "Single Linear Regression Prediction" or operation == "Z-Score":
             # split entry into list by commas
             entry = entry.split(',')
+            if len(entry) > 3:
+                raise exception("too many values")
         else:
             # split entry into list by new line
             entry = entry.split("\n")
@@ -56,6 +63,10 @@ def calculate():
                 # convert items to floats
                 (entry[count])[0] = float((entry[count])[0])
                 (entry[count])[1] = float((entry[count])[1])
+                if len(entry[count]) > 2:
+                    #invalid input
+                    print("ordered pair length error found")
+                    raise exception("too many values")
                 count += 1
 
         else:
@@ -79,7 +90,8 @@ def calculate():
                 result = statistics.mean(entry)
             except Exception as e:
                 error_state = True
-                result = "invalid entry " + str(e)
+                msg_header = "Calculation Error"
+                result = "invalid entry, " + str(e)
 
         elif operation == 'Population Standard Deviation':
             """
@@ -91,7 +103,8 @@ def calculate():
                 result = statistics.standard_deviation(entry)
             except Exception as e:
                 error_state = True
-                result = "invalid entry " + str(e)
+                msg_header = "Calculation Error"
+                result = "invalid entry, " + str(e)
 
         elif operation == 'Z-Score':
             """
@@ -117,7 +130,8 @@ def calculate():
                 result = regression.linear_regression(entry)
             except Exception as e:
                 error_state = True
-                result = "invalid entry " + str(e)
+                msg_header = "Calculation Error"
+                result = "invalid entry, " + str(e)
 
         elif operation == 'Single Linear Regression Prediction':
             """
@@ -134,19 +148,37 @@ def calculate():
 
             except Exception as e:
                 error_state = True
-                result = "invalid entry " + str(e)
+                msg_header = "Calculation Error"
+                result = "invalid entry, " + str(e)
 
         else:
             # should never run (invalid operation selected)
             # DEBUGGING PRINT
             error_state = True
             print("Invalid operation")
-            result = "Invalid operation (this shouldn't be possible)"
+            msg_header = "Invalid input"
+            result = "Invalid operation"
 
     # executes if error occurs due to user input
     except Exception as e:
+        #DEBUGGING PRINT
+        print(e)
         error_state = True
-        result = "invalid entry, please enter values as numbers"
+        if operation == "Mean":
+            result = "Mean format is: individual values on each line"
+        elif operation == "Population Standard Deviation":
+            result = "Standard Deviation format is: individual values on each line"
+        elif operation == "Z-Score":
+            result = "Z-Score format is: \"value, mean, standard deviation\" values on one line (seperated by commas)"
+        elif operation == "Single Linear Regression Formula:":
+            result = "Linear regression format is: one ordered pair on each line. Ex: 1,2"
+        elif operation == "Single Linear Regression Prediction":
+            result = "Predict Y format is: \"m,x,b\" values on one line (seperated by commas)"
+        else:
+            result = "Invalid entry, please try again"
+
+
+        msg_header = "Invalid input"
         # DEBUGGING PRINT
         print("invalid entry: " + str(entry))
 
@@ -154,9 +186,7 @@ def calculate():
     # DEBUGGING PRINT
     print("result: " + str(result))
 
-    if error_state:
-        msg_header = "Invalid Input"
-    else:
+    if not error_state:
         msg_header = operation
 
 

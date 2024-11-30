@@ -1,8 +1,12 @@
+html {
+    background-color: lightgray; /* Color outside the body border */
+}
 body{
+    background-color: #FFFFFF;
     margin-left: 28%;
     margin-right: 28%;
     border-style: solid;
-    border-color: #ffffff;
+    border-color: #FFFFFF;
     font-family: Helvetica, sans-serif;
 }
 .parent {
@@ -38,7 +42,6 @@ p{
     color: black;
     text-align: center;
     padding: 10px;
-    padding-bottom: 15px;
 }
 form{
     border: 2px #eee solid;
