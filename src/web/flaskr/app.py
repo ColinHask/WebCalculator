@@ -100,7 +100,7 @@ def calculate():
             give the standard deviation
             """
             try:
-                result = statistics.standard_deviation(entry)
+                result = statistics.population_standard_deviation(entry)
             except Exception as e:
                 error_state = True
                 msg_header = "Calculation Error"
