@@ -33,13 +33,14 @@
 
         {#   Input box   #}
     <h3><strong>Values</strong></h3>
-       <textarea name="entry" rows="4" cols="60" placeholder="Enter values here" required></textarea>
+       <textarea name="entry" placeholder="Enter values here" required></textarea>
 
        <br><br>
 
         <!-- submit buttons -->
     <h2><strong>Descriptive Statistics</strong></h2>
-
+        <button class="center"  type="button" onclick="submitForm('Sample Standard Deviation')">Compute Sample Standard Deviation | one value per line</button>
+        <br>
         <button class="center"  type="button" onclick="submitForm('Population Standard Deviation')">Compute Population Standard Deviation | one value per line</button>
         <br>
         <button class="center" type="button" onclick="submitForm('Mean')">Compute Mean | one value per line</button>

@@ -88,7 +88,21 @@ def calculate():
             except Exception as e:
                 error_state = True
                 msg_header = "Calculation Error"
-                result = "invalid entry, " + str(e)
+                result = "Invalid entry, " + str(e)
+
+
+        elif operation == 'Sample Standard Deviation':
+            """
+            Intakes a list of any numbers and calculates the mean from the mean function.
+            The mean is then used in the variance function. Finally, the square root of the variance
+            give the standard deviation
+            """
+            try:
+                result = statistics.sample_standard_deviation(entry)
+            except Exception as e:
+                error_state = True
+                msg_header = "Calculation Error"
+                result = "Invalid entry, " + str(e)
 
         elif operation == 'Population Standard Deviation':
             """
@@ -101,7 +115,7 @@ def calculate():
             except Exception as e:
                 error_state = True
                 msg_header = "Calculation Error"
-                result = "invalid entry, " + str(e)
+                result = "Invalid entry, " + str(e)
 
         elif operation == 'Z-Score':
             """
@@ -116,7 +130,7 @@ def calculate():
                 result = statistics.z_score(value, average, variation)
             except Exception as e:
                 error_state = True
-                result = "invalid entry " + str(e)
+                result = "Invalid entry " + str(e)
 
         elif operation == 'Single Linear Regression Formula:':
             """
@@ -128,7 +142,7 @@ def calculate():
             except Exception as e:
                 error_state = True
                 msg_header = "Calculation Error"
-                result = "invalid entry, " + str(e)
+                result = "Invalid entry, " + str(e)
 
         elif operation == 'Single Linear Regression Prediction':
             """
@@ -146,7 +160,7 @@ def calculate():
             except Exception as e:
                 error_state = True
                 msg_header = "Calculation Error"
-                result = "invalid entry, " + str(e)
+                result = "Invalid entry, " + str(e)
 
         else:
             # should never run (invalid operation selected)
@@ -163,7 +177,7 @@ def calculate():
         error_state = True
         if operation == "Mean":
             result = "Mean format is: individual values on each line"
-        elif operation == "Population Standard Deviation":
+        elif operation == "Population Standard Deviation" or operation == "Sample Standard Deviation":
             result = "Standard Deviation format is: individual values on each line"
         elif operation == "Z-Score":
             result = "Z-Score format is: \"value, mean, standard deviation\" values on one line (seperated by commas)"
@@ -177,7 +191,7 @@ def calculate():
 
         msg_header = "Invalid input"
         # DEBUGGING PRINT
-        print("invalid entry: " + str(entry))
+        print("Invalid entry: " + str(entry))
 
     #testing
     # DEBUGGING PRINT
