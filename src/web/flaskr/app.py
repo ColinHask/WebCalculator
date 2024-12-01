@@ -1,7 +1,4 @@
-from sys import exception
-
 from flask import Flask, render_template, request
-
 
 #import calculator_logic functionalities from calculator_logic folder
 from src.calculator_logic import regression, statistics
@@ -49,7 +46,7 @@ def calculate():
             # split entry into list by commas
             entry = entry.split(',')
             if len(entry) > 3:
-                raise exception("too many values")
+                raise Exception("too many values")
         else:
             # split entry into list by new line
             entry = entry.split("\n")
@@ -66,7 +63,7 @@ def calculate():
                 if len(entry[count]) > 2:
                     #invalid input
                     print("ordered pair length error found")
-                    raise exception("too many values")
+                    raise Exception("too many values")
                 count += 1
 
         else:
