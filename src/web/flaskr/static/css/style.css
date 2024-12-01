@@ -1,12 +1,10 @@
 html {
-    background-color: lightgray; /* Color outside the body border */
+    background-color: #e6ebed; /* Color outside the body border */
 }
 body{
     background-color: #FFFFFF;
     margin-left: 28%;
     margin-right: 28%;
-    border-style: solid;
-    border-color: #FFFFFF;
     font-family: Helvetica, sans-serif;
 }
 .parent {
@@ -19,7 +17,7 @@ body{
     color: #000000;
     text-align: left;
     padding: 10px;
-    padding-right: 25%;
+    padding-right: 20%;
     vertical-align: middle;
 }
 .child2 {
@@ -30,7 +28,7 @@ body{
     color: #000000;
     text-align: center; /* Center the text inside the button */
     padding: 5px; /* Consistent padding */
-    width: 40%; /* Takes up 40% of the body width */
+    width: 45%; /* Takes up 40% of the body width */
     margin-left: auto; /* Pushes the button to the right */
     margin-right: 0; /* Align to the right edge */
     box-sizing: border-box; /* Ensure width includes padding and border */
@@ -43,7 +41,7 @@ p{
     padding: 10px;
 }
 textarea {
-    width: 95%;
+    width: 98%;
     height: 120px;
     border: 1.5px #000000 solid;
     border-radius: 5px;

@@ -59,12 +59,20 @@
        // Pass the server-side 'error' variable to JavaScript
        var error = {{ error|tojson }};
 
-        function setMsgRedIfError() {
+       // Pass 'result' to JavaScript
+        var result = {{ result|tojson }};
+
+        function formatMsgBoard() {
             if(error){
             const element = document.getElementById("MsgBoard");
             // Change the color of the element
             element.style.color = "#FFFFFF";
             element.style.backgroundColor = "#B70F0A";
+
+            } else if (result === "Enter values below, then select an operation") {
+            // Bold the text if 'result' matches the phrase
+            const element = document.getElementById("MsgBoard");
+            element.style.fontWeight = "bold";
             }
         }
 
@@ -75,8 +83,8 @@
             // Submit the form
             document.getElementById('calculator-form').submit();
         }
-
-        setMsgRedIfError()
+       
+        formatMsgBoard()
    </script>
 
 </body>
