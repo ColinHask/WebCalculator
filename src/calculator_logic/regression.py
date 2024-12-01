@@ -3,11 +3,14 @@ import math
 
 def linear_regression(xy_list):
     """
-    intakes a list of number pairs (e.g., [(x1,y1),...,(xn,yn)]) and returns the estimated slope and
+    Intakes a list of number pairs (e.g., [(x1,y1),...,(xn,yn)]) and returns the estimated slope and
     then uses the calculations of that slope to return the predicted y intercept
     """
 
     number_of_pairs = len(xy_list)
+    if number_of_pairs < 2:
+        raise ValueError("Must have at least two inputs.")
+
     try:
         # summing up all the x elements in each pair and storing it in a total_x value
         total_x = 0
@@ -23,8 +26,8 @@ def linear_regression(xy_list):
         average_x = total_x / number_of_pairs
         average_y = total_y / number_of_pairs
 
-        # the formula for estimating slope is a big fraction. For clarity the calculations for numerator are stored
-        # in a numerator variable and the calculations for denominator are stored in a denominator variable.
+        # the formula for estimating slope is a big fraction. For clarity, the calculations for numerator are stored
+        # in a numerator variable, and the calculations for denominator are stored in a denominator variable.
         numerator_sum = 0
         denominator_sum = 0
         for i in xy_list:
@@ -35,13 +38,19 @@ def linear_regression(xy_list):
             numerator_sum += x_difference * y_difference
             denominator_sum += x_difference ** 2
 
+        # identical x value error
+        if denominator_sum == 0:
+            raise ValueError("Linear regression is not defined as all x-values are identical.")
+
         # slope is calculated from numerator and denominator calculations
         estimated_slope = numerator_sum / denominator_sum
 
         # using slope equation, the y intercept is calculated
         y_intercept = average_y - estimated_slope * average_x
 
-        equation ="y = " + str(estimated_slope) + " x + " + str(y_intercept)
+        # returning the equation as a string with rounded values
+        equation = f"y = {round(estimated_slope, 10)}x + {round(y_intercept, 10)}"
+
         return equation
 
     except ZeroDivisionError:
