@@ -38,9 +38,22 @@ Unlike the unit testing module, this module does *not* directly reference the we
 
 This is a cross-platform application and should work in Windows 10+, Mac OSx Ventura+, and Linux environments. Note that the application has only been carefully tested in Windows 11 and Mac OS.
 
-To prepare your environment to execute this application:
- 1. [Install the latest version of python for your system](https://www.python.org/downloads/)
- 2. ...
+### To prepare your environment to execute this application:
+ 1. [Install the latest version of python for your system.](https://www.python.org/downloads/)
+ 2. [Ensure that pip is correctly installed, updated, and configured.](https://www.datacamp.com/tutorial/pip-upgrade-python)
+ 3. [Install and configure git if not already set up.](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+4. git Clone this repository via http to an easily accessible directory. <br>
+   <br>i. Navigate to the directory you wish to clone the repository. 
+   <br>ii. Clone via the following command:
+    ```cmd
+    git clone https://github.com/ColinHask/WebCalculator.git
+    ```
+ 5. Download necessary dependencies by running the following command:
+    ```cmd
+    pip install <path-to-requirements.txt> -r 
+    ```
+    (replace <path-to-requirements.txt> wth the actual path to the requirements.txt file)
+### To configure Playwright for end-to-end testing:
+  1. [Install and configure Playwright](https://playwright.dev/python/docs/intro)
 
-To configure Playwright for end-to-end testing:
-  1. ...
+## Executing the Web Application
