@@ -174,6 +174,7 @@ def calculate():
     except Exception as e:
         #DEBUGGING PRINT
         print(e)
+
         error_state = True
         if operation == "Mean":
             result = "Mean format is: individual values on each line"

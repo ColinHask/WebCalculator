@@ -16,7 +16,7 @@ Unit tests are included using pytest, and end-to-end testing through playwright 
 
 ## Team Members
  - Colin Haskins
- - Michael 
+ - Michael Sich
 
 ## Architecture
 The Web-Based Calculator architecture uses four main modules, the logic module, web server module, unit test module, and end-to-end testing module. 
@@ -41,7 +41,7 @@ This is a cross-platform application and should work in Windows 10+, Mac OSx Ven
 ### To prepare your environment to execute this application:
  1. [Install the latest version of python for your system.](https://www.python.org/downloads/)
  2. [Ensure that pip is correctly installed, updated, and configured.](https://www.datacamp.com/tutorial/pip-upgrade-python)
- 3. [Install and configure git if not already set up.](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+ 3. [Install and configure git, if not already set up.](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 4. git Clone this repository via http to an easily accessible directory. <br>
    <br>i. Navigate to the directory you wish to clone the repository. 
    <br>ii. Clone via the following command:
@@ -53,7 +53,34 @@ This is a cross-platform application and should work in Windows 10+, Mac OSx Ven
     pip install <path-to-requirements.txt> -r 
     ```
     (replace <path-to-requirements.txt> wth the actual path to the requirements.txt file)
-### To configure Playwright for end-to-end testing:
-  1. [Install and configure Playwright](https://playwright.dev/python/docs/intro)
+### To configure end-to-end testing and unit testing dependencies:
+  1. [Install and configure pytest](https://docs.pytest.org/en/stable/getting-started.html)
+  2. [Install and configure Playwright for Python](https://playwright.dev/python/docs/intro)
 
 ## Executing the Web Application
+
+ 1. Open Command Prompt and navigate to your project directory
+ 2. Set the environmental variable for Flask with the following command:
+    ```cmd
+    set FLASK_APP=src/web/flaskr/app.py
+    ```
+ 3. Run the Flask app with the following command:
+    ```cmd
+    python -m flask run
+    ```
+ 4.  After the application starts, launch a browser and connect to http://127.0.0.1:5000/    
+
+If multiple Python versions are installed, ensure you're using the most recent version.
+Occasionally, OneDrive paths can cause issues due to syncing. If you suspect this, try moving the project folder to a non-synced location.
+
+### Sample Output
+```cmd
+$ set FLASK_APP=src/web/flaskr/app.py
+$ python -m flask run
+
+ * Serving Flask app 'src/web/flaskr/app.py'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+```
