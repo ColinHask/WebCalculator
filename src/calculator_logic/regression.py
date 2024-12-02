@@ -57,7 +57,6 @@ def linear_regression(xy_list):
         # checking for division by zero exception
         raise ValueError("you cannot divide by zero")
 
-
 def predict_y(x, m, b):
     """
     intakes three variables which I purposely named x, m and b since this calculation using form y = mx + b standard

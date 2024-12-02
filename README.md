@@ -86,3 +86,26 @@ Press CTRL+C to quit
 ```
 
 ## Executing Unit Tests
+
+ 1. Navigate to the project directory.
+ 2. execute the following command to run pytest unit tests:
+    ```cmd
+    pytest src/tests/test_logic.py
+    ```
+
+### Sample Output
+```cmd
+$pytest src/tests/test_logic.py
+
+================================================= test session starts =================================================
+platform win32 -- Python 3.11.9, pytest-8.3.3, pluggy-1.5.0
+rootdir: C:\Users\Colin\OneDrive\Desktop\REPOS\WebCalculator
+plugins: anyio-4.6.0, dash-2.17.0, base-url-2.1.0, playwright-0.6.2
+collected 31 items
+
+src\tests\test_logic.py ...............................                                                          [100%]
+
+================================================= 31 passed in 0.06s ==================================================
+```
+
+## Reviewing Unit Test Coverage
