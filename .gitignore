@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#MAC
+.DS_Store
+
 # C extensions
 *.so
 
@@ -134,3 +137,6 @@ bandit.log
 # Other editors or IDEs
 *.sublime-project
 *.sublime-workspace
+
+
+.DS_Store

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Calculator</title>
+</head>
+<body>
+
+<form id="calculator-form" action="/calculate" method="post">
+
+
+    <!--this is where the input is stored-->
+    <input type="hidden" name="operation" id="operation">
+
+
+{#    Title with button included    #}
+    <div class='parent'>
+  <h1 class='child1'>Calculator</h1>
+  <button class='child2' type="button" onclick="submitForm('clear')">Clear</button>
+   </div>
+
+
+        {# msgBoard header line only exists if header exists#}
+        <p id="MsgBoard">
+          <strong>
+            {% if msgHeader %}
+              {{ msgHeader }}<br>
+            {% endif %}
+          </strong>
+          {{ result }}
+        </p>
+
+        {#   Input box   #}
+    <h3><strong>Values</strong></h3>
+       <textarea name="entry" placeholder=" " required></textarea>
+
+       <br><br>
+
+        <!-- submit buttons -->
+    <h2><strong>Descriptive Statistics</strong></h2>
+        <button class="center"  type="button" onclick="submitForm('Sample Standard Deviation')">Compute Sample Standard Deviation | one value per line</button>
+        <br>
+        <button class="center"  type="button" onclick="submitForm('Population Standard Deviation')">Compute Population Standard Deviation | one value per line</button>
+        <br>
+        <button class="center" type="button" onclick="submitForm('Mean')">Compute Mean | one value per line</button>
+        <br>
+        <button class="center"  type="button" onclick="submitForm('Z-Score')">Compute Z Score | value, mean, stdDev on one line</button>
+        <br>
+    <h2><strong>Single Linear Regression</strong></h2>
+
+        <button class="center"  type="button" onclick="submitForm('Single Linear Regression Formula:')">Compute Single Linear Regression Formula | one x,y pair per line</button>
+        <br>
+        <button class="center"  type="button" onclick="submitForm('Single Linear Regression Prediction')">Predict Y From Linear Regression Formula | x, m, b on one line</button>
+   </form>
+
+   <script>
+
+       // Pass the server-side 'error' variable to JavaScript
+       var error = {{ error|tojson }};
+
+       // Pass 'result' to JavaScript
+        var result = {{ result|tojson }};
+
+        function formatMsgBoard() {
+            if(error){
+            const element = document.getElementById("MsgBoard");
+            // Change the color of the element
+            element.style.color = "#FFFFFF";
+            element.style.backgroundColor = "#B70F0A";
+
+            } else if (result === "Enter values below, then select an operation") {
+            // Bold the text if 'result' matches the phrase
+            const element = document.getElementById("MsgBoard");
+            element.style.fontWeight = "bold";
+            }
+        }
+
+
+        function submitForm(op) {
+            // Set the value of the hidden input to the selected operation
+            document.getElementById('operation').value = op;
+            // Submit the form
+            document.getElementById('calculator-form').submit();
+        }
+
+        formatMsgBoard()
+   </script>
+
+</body>
+</html>

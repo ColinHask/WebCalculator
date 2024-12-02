@@ -1,0 +1,72 @@
+html {
+    background-color: #e6ebed; /* Color outside the body border */
+}
+body{
+    background-color: #FFFFFF;
+    margin-left: 28%;
+    margin-right: 28%;
+    font-family: Helvetica, sans-serif;
+}
+.parent {
+  horiz-align: left;
+  margin: 1.5%;
+}
+.child1 {
+    font-weight: normal;
+    display: inline-block;
+    color: #000000;
+    text-align: left;
+    padding: 10px;
+    padding-right: 20%;
+    vertical-align: middle;
+}
+.child2 {
+    display: inline-block; /* Keeps the button inline */
+    border: 1.5px #000000 solid;
+    border-radius: 5px;
+    background: #EBEBEB;
+    color: #000000;
+    text-align: center; /* Center the text inside the button */
+    padding: 5px; /* Consistent padding */
+    width: 45%; /* Takes up 40% of the body width */
+    margin-left: auto; /* Pushes the button to the right */
+    margin-right: 0; /* Align to the right edge */
+    box-sizing: border-box; /* Ensure width includes padding and border */
+}
+p{
+    border: 2px #eee solid;
+    background: #FFECD7;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+textarea {
+    width: 98%;
+    height: 120px;
+    border: 1.5px #000000 solid;
+    border-radius: 5px;
+}
+form{
+    border: 2px #eee solid;
+    color: #000000;
+    text-align: left;
+    padding: 10px;
+}
+button {
+    border: 1.5px #000000 solid;
+    border-radius: 5px;
+    background: #EBEBEB;
+    color: #000000;
+    margin-bottom: 2%;
+    padding: 0.7%; /* Unified padding for top and bottom */
+    width: 100%; /* Make button take the full width of its container */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    text-align: center; /* Center the text inside the button */
+}
+button:active {
+    border: 3px #000000 solid;
+    background: #acacac;
+}
+p, h1, form {
+    margin: 0;
+}
