@@ -61,14 +61,25 @@ This is a cross-platform application and should work in Windows 10+, Mac OSx Ven
 
  1. Open Command Prompt and navigate to your project directory
  2. Set the environmental variable for Flask with the following command:
+    <br>*Windows*
     ```cmd
     set FLASK_APP=src/web/flaskr/app.py
     ```
+    *Mac*
+    ```terminal
+    export FLASK_APP=src/web/flaskr/app.py
+    ```
+    
  3. Run the Flask app with the following command:
+    <br>*Windows*
     ```cmd
     python -m flask run
     ```
- 4.  After the application starts, launch a browser and connect to http://127.0.0.1:5000/    
+    *Mac*
+    ```terminal
+    python3 -m flask run
+    ```
+ 4.  After the application starts, launch a browser and connect to http://127.0.0.1:5000/  
 
 If multiple Python versions are installed, ensure you're using the most recent version.
 Occasionally, OneDrive paths can cause issues due to syncing. If you suspect this, try moving the project folder to a non-synced location.
