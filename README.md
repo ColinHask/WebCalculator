@@ -130,3 +130,37 @@ src\tests\test_logic.py ...............................                         
 ```
 
 ## Reviewing Unit Test Coverage
+
+Calculator logic module unit tests receive 100% coverage
+![coverage1.png](README.assets/coverage1.png)
+
+## Executing End-To-End Tests
+
+ 1. [Run the Web-server following the previous instructions](#executing-the-web-application)
+ 2. Open a new terminal and navigate to the project directory
+ 3. Run the following command to start Playwright tests:
+    <br>*Windows*
+    ```cmd
+    pytest src/e2e/playwright_tests.py
+    ```
+    *Mac*
+    ```cmd
+    python3 -m pytest src/e2e/playwright_tests.py
+    ```
+### Sample Output
+
+```cmd
+$pytest src/e2e/playwright_tests.py
+
+================================================= test session starts =================================================
+platform win32 -- Python 3.11.9, pytest-8.3.3, pluggy-1.5.0
+rootdir: C:\Users\Colin\OneDrive\Desktop\REPOS\WebCalculator
+plugins: anyio-4.6.0, dash-2.17.0, base-url-2.1.0, playwright-0.6.2
+collected 8 items
+
+src\e2e\playwright_tests.py ........                                                                             [100%]
+
+================================================== 8 passed in 3.12s ==================================================
+```
+
+## Final Video Presentation
