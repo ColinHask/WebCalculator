@@ -200,8 +200,7 @@ def test_LinearRegression_AllZeroEntires_Error():
         result = str(e)
 
     # assert
-    assert result == "Linear regression is not defined as every pair " \
-                     "x,y = 0,0."
+    assert result == "Linear regression is not defined as all x-values are identical."
 
 
 # testing linear regression for a null input
