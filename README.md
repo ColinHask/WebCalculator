@@ -168,3 +168,7 @@ src\e2e\playwright_tests.py ........                                            
 ```
 
 ## Final Video Presentation
+
+[View Final Video Presentation Pt.1 Here](https://youtu.be/rFEc2f087cw)
+<br>
+[View Final Video Presentation Pt.2 Here](https://youtu.be/LStzI7o6q0c)
