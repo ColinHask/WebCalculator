@@ -120,7 +120,7 @@ Press CTRL+C to quit
 
 ### Sample Output
 ```cmd
-$pytest src/tests/test_logic.py
+$ pytest src/tests/test_logic.py
 
 ================================================= test session starts =================================================
 platform win32 -- Python 3.11.9, pytest-8.3.3, pluggy-1.5.0
@@ -154,7 +154,7 @@ Calculator logic module unit tests receive 100% coverage<br>
 ### Sample Output
 
 ```cmd
-$pytest src/e2e/playwright_tests.py
+$ pytest src/e2e/playwright_tests.py
 
 ================================================= test session starts =================================================
 platform win32 -- Python 3.11.9, pytest-8.3.3, pluggy-1.5.0
