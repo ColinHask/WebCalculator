@@ -26,7 +26,7 @@ def sample_standard_deviation(number_list):
     """
     # if statement that accounts for 0 and 1 since n-1 results in negative
     # values
-    if len(number_list) < 2:
+    if len(number_list) <= 2:
         raise ValueError("At least two data points are needed for sample"
                          " standard deviation.")
 
