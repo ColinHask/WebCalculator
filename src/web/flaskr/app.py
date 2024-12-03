@@ -205,3 +205,4 @@ def calculate():
 
     #render template with entry and result value submitted
     return render_template('index.html', msgHeader=msg_header, result=result, error=error_state)
+
