@@ -21,7 +21,7 @@ Unit tests are included using pytest, and end-to-end testing through playwright 
 ## Architecture
 The Web-Based Calculator architecture uses four main modules, the logic module, web server module, unit test module, and end-to-end testing module. 
 
-![diagram.svg](README.assets/diagram.svg)
+![Diagram1.png](README.assets/Diagram1.png)
 
 ### Functional Modules
 The *web server* module renders HTML templates while handling inputs and communicating with the logical module.
@@ -49,17 +49,22 @@ This is a cross-platform application and should work in Windows 10+, Mac OSx Ven
     git clone https://github.com/ColinHask/WebCalculator.git
     ```
  5. Download necessary dependencies by running the following command:
+    <br>*Windows*
     ```cmd
     pip install <path-to-requirements.txt> -r 
     ```
-    (replace <path-to-requirements.txt> wth the actual path to the requirements.txt file)
+    *Mac*
+    ```terminal
+    pip3 install -r <path/to/requirements.txt>
+    ```
+    (replace <path/to/requirements.txt> wth the actual path to the requirements.txt file)
 ### To configure end-to-end testing and unit testing dependencies:
   1. [Install and configure pytest](https://docs.pytest.org/en/stable/getting-started.html)
   2. [Install and configure Playwright for Python](https://playwright.dev/python/docs/intro)
 
 ## Executing the Web Application
 
- 1. Open Command Prompt and navigate to your project directory
+ 1. Navigate to your project directory.
  2. Set the environmental variable for Flask with the following command:
     <br>*Windows*
     ```cmd
@@ -100,8 +105,13 @@ Press CTRL+C to quit
 
  1. Navigate to the project directory.
  2. execute the following command to run pytest unit tests:
+    <br>Windows
     ```cmd
     pytest src/tests/test_logic.py
+    ```
+    <br>Mac
+    ```cmd
+    python3 -m pytest src/tests/test_logic.py
     ```
 
 ### Sample Output
