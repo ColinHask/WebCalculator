@@ -15,7 +15,8 @@ def test_CalculatorWebUi_PageTitle_IsCalculator(page: Page):
     # Expect a title "to contain" a substring.
     expect(page).to_have_title(re.compile(expected_value))
 
-# preq-E2E-TEST-6	From the application's default state, compute the sample standard deviation for 9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4. Verify that the result is 3.060787652326.
+# preq-E2E-TEST-6	From the application's default state, compute the sample standard deviation for 9, 2, 5, 4, 12, 7,
+# 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4. Verify that the result is 3.060787652326.
 def test_StDevUi_NumberInput_CorrectResult(page: Page):
     #arrange
     expected_value = "3.060787652326"
@@ -30,7 +31,8 @@ def test_StDevUi_NumberInput_CorrectResult(page: Page):
     #assert
     expect(msgboard).to_have_text(re.compile(expected_value))
 
-# preq-E2E-TEST-7	From the application's default state, attempt to compute the population standard deviation with an empty list. Verify the error message is shown.
+# preq-E2E-TEST-7	From the application's default state, attempt to compute the population standard deviation with an
+# empty list. Verify the error message is shown.
 def test_StDevUi_EmptyInput_ErrorMessage(page: Page):
     #arrange
     expected_value = "Invalid input"
@@ -45,7 +47,8 @@ def test_StDevUi_EmptyInput_ErrorMessage(page: Page):
     #assert
     expect(msgboard).to_have_text(re.compile(expected_value))
 
-# preq-E2E-TEST-8	From the application's default state, attempt to compute the sample standard deviation with a single value. Verify the error message is shown.
+# preq-E2E-TEST-8	From the application's default state, attempt to compute the sample standard deviation with a single
+# value. Verify the error message is shown.
 def test_StDevUi_SingleInput_ErrorMessage(page: Page):
     #arrange
     expected_value = "Invalid entry, At least two data points are needed for sample standard deviation."
@@ -60,7 +63,8 @@ def test_StDevUi_SingleInput_ErrorMessage(page: Page):
     #assert
     expect(msgboard).to_have_text(re.compile(expected_value))
 
-# preq-E2E-TEST-9	From the application's default state, compute the mean for 9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12, 5, 4, 10, 9, 6, 9, 4. Verify that the result is 7.
+# preq-E2E-TEST-9	From the application's default state, compute the mean for 9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7, 4, 12,
+# 5, 4, 10, 9, 6, 9, 4. Verify that the result is 7.
 def test_MeanUi_NumberInput_CorrectResult(page: Page):
     #arrange
     expected_value = "7"
@@ -75,7 +79,8 @@ def test_MeanUi_NumberInput_CorrectResult(page: Page):
     #assert
     expect(msgboard).to_have_text(re.compile(expected_value))
 
-# preq-E2E-TEST-10	From the application's default state, compute the z-score for 5.5 with a mean of 7 and a standard deviation of 3.060787652326. Verify that the result is -0.49007.
+# preq-E2E-TEST-10	From the application's default state, compute the z-score for 5.5 with a mean of 7 and a standard
+# deviation of 3.060787652326. Verify that the result is -0.49007.
 
 def test_ZScoreUi_NumberInput_CorrectResult(page: Page):
     #arrange
@@ -91,7 +96,8 @@ def test_ZScoreUi_NumberInput_CorrectResult(page: Page):
     #assert
     expect(msgboard).to_have_text(re.compile(expected_value))
 
-# preq-E2E-TEST-11	From the application's default state, compute the single linear regression formula for the following 12 X,Y pairs. Verify the result is y = -0.04596X + 6.9336.
+# preq-E2E-TEST-11	From the application's default state, compute the single linear regression formula for the following
+# 12 X,Y pairs. Verify the result is y = -0.04596X + 6.9336.
 # 5,3
 # 3,2
 # 2,15
@@ -132,7 +138,8 @@ def test_LinearRegressionUi_XYInput_CorrectResult(page: Page):
     #assert
     expect(msgboard).to_contain_text(expected_value)
 
-# preq-E2E-TEST-12	From the application's default state, predict the Y value for the regression values X=6, M=-0.04596, B=6.9336. Verify the result is 6.65784.
+# preq-E2E-TEST-12	From the application's default state, predict the Y value for the regression values X=6, M=-0.04596,
+# B=6.9336. Verify the result is 6.65784.
 
 def test_PredictYUi_NumberInput_CorrectResult(page: Page):
     #arrange

@@ -19,7 +19,8 @@ Unit tests are included using pytest, and end-to-end testing through playwright 
  - Michael Sich
 
 ## Architecture
-The Web-Based Calculator architecture uses four main modules, the logic module, web server module, unit test module, and end-to-end testing module. 
+The Web-Based Calculator architecture uses four main modules, the logic module, web server module, unit test module, and
+end-to-end testing module. 
 
 ![Diagram1.png](README.assets/Diagram1.png)
 
@@ -32,11 +33,13 @@ The *unit testing* module handles unit tests for the logical module with 100% co
 This module references the logical module directly and utilizes pytest for testing. 
 
 The *end-to-end testing* module handles end-to-end Playwright testing for the web server.
-Unlike the unit testing module, this module does *not* directly reference the web module, and the server must be running for tests to function.
+Unlike the unit testing module, this module does *not* directly reference the web module, and the server must be running
+for tests to function.
 
 ## Environment
 
-This is a cross-platform application and should work in Windows 10+, Mac OSx Ventura+, and Linux environments. Note that the application has only been carefully tested in Windows 11 and Mac OS.
+This is a cross-platform application and should work in Windows 10+, Mac OSx Ventura+, and Linux environments. Note that
+the application has only been carefully tested in Windows 11 and Mac OS.
 
 ### To prepare your environment to execute this application:
  1. [Install the latest version of python for your system.](https://www.python.org/downloads/)
@@ -49,7 +52,7 @@ This is a cross-platform application and should work in Windows 10+, Mac OSx Ven
     git clone https://github.com/ColinHask/WebCalculator.git
     ```
  5. Download necessary dependencies by running the following command:
-    <br>*Windows*
+    <br><br>*Windows*
     ```cmd
     pip install <path-to-requirements.txt> -r 
     ```
@@ -66,7 +69,7 @@ This is a cross-platform application and should work in Windows 10+, Mac OSx Ven
 
  1. Navigate to your project directory.
  2. Set the environmental variable for Flask with the following command:
-    <br>*Windows*
+    <br><br>*Windows*
     ```cmd
     set FLASK_APP=src/web/flaskr/app.py
     ```
@@ -76,7 +79,7 @@ This is a cross-platform application and should work in Windows 10+, Mac OSx Ven
     ```
     
  3. Run the Flask app with the following command:
-    <br>*Windows*
+    <br><br>*Windows*
     ```cmd
     python -m flask run
     ```
@@ -87,7 +90,8 @@ This is a cross-platform application and should work in Windows 10+, Mac OSx Ven
  4.  After the application starts, launch a browser and connect to http://127.0.0.1:5000/  
 
 If multiple Python versions are installed, ensure you're using the most recent version.
-Occasionally, OneDrive paths can cause issues due to syncing. If you suspect this, try moving the project folder to a non-synced location.
+Occasionally, OneDrive paths can cause issues due to syncing. If you suspect this, try moving the project folder to a
+non-synced location.
 
 ### Sample Output
 ```cmd
@@ -105,11 +109,11 @@ Press CTRL+C to quit
 
  1. Navigate to the project directory.
  2. execute the following command to run pytest unit tests:
-    <br>Windows
+    <br><br>*Windows*
     ```cmd
     pytest src/tests/test_logic.py
     ```
-    <br>Mac
+    *Mac*
     ```cmd
     python3 -m pytest src/tests/test_logic.py
     ```
@@ -131,7 +135,7 @@ src\tests\test_logic.py ...............................                         
 
 ## Reviewing Unit Test Coverage
 
-Calculator logic module unit tests receive 100% coverage
+Calculator logic module unit tests receive 100% coverage<br>
 ![coverage1.png](README.assets/coverage1.png)
 
 ## Executing End-To-End Tests
@@ -139,7 +143,7 @@ Calculator logic module unit tests receive 100% coverage
  1. [Run the Web-server following the previous instructions](#executing-the-web-application)
  2. Open a new terminal and navigate to the project directory
  3. Run the following command to start Playwright tests:
-    <br>*Windows*
+    <br><br>*Windows*
     ```cmd
     pytest src/e2e/playwright_tests.py
     ```

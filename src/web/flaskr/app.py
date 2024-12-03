@@ -80,8 +80,8 @@ def calculate():
 
         if operation == 'Mean':
             """
-            Takes a list of any real number elements and then calculates the mean by adding all the elements and dividing by
-            the number of them
+            Takes a list of any real number elements and then calculates the mean by adding all the elements and 
+            dividing by the number of them
             """
             try:
                 result = statistics.mean(entry)
@@ -119,8 +119,8 @@ def calculate():
 
         elif operation == 'Z-Score':
             """
-            Takes three inputs value, average (i.e., mean), and variation (i.e., standard deviation) and then returns the z score.
-            Chose a different synonym for mean and standard deviation due to methods having similar names
+            Takes three inputs value, average (i.e., mean), and variation (i.e., standard deviation) and then returns
+            the z score. Chose a different synonym for mean and standard deviation due to methods having similar names
             """
             try:
                 # set variables for method call
@@ -146,9 +146,9 @@ def calculate():
 
         elif operation == 'Single Linear Regression Prediction':
             """
-            intakes three variables which I purposely named x, m and b since this calculation using form y = mx + b standard
-            linear polynomial equation. Finally, it returns the value of the function (i.e., y) using the slope, the x value
-            and the y intercept.
+            intakes three variables which I purposely named x, m and b since this calculation using form y = mx + b
+            standard linear polynomial equation. Finally, it returns the value of the function (i.e., y) using the
+            slope, the x value and the y intercept.
             """
             try:
                 #set variables for method call
