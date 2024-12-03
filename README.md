@@ -2,7 +2,7 @@
 
 This repository contains a Web-Based calculator for statistical and linear regression operations.
 The project uses Python Flask for the web server and Python for the logical backend.
-Unit tests are included using pytest, and end-to-end testing through playwright is also included.
+Unit tests are included using pytest, and end-to-end testing through Playwright is also included.
 
 ## Table of Contents
 - [Team Members](#team-members)
@@ -41,7 +41,7 @@ for tests to function.
 This is a cross-platform application and should work in Windows 10+, Mac OSx Ventura+, and Linux environments. Note that
 the application has only been carefully tested in Windows 11 and Mac OS.
 
-### To prepare your environment to execute this application:
+### To Prepare Your Environment to Execute This Application:
  1. [Install the latest version of python for your system.](https://www.python.org/downloads/)
  2. [Ensure that pip is correctly installed, updated, and configured.](https://www.datacamp.com/tutorial/pip-upgrade-python)
  3. [Install and configure git, if not already set up.](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -61,7 +61,7 @@ the application has only been carefully tested in Windows 11 and Mac OS.
     pip3 install -r <path/to/requirements.txt>
     ```
     (replace <path/to/requirements.txt> wth the actual path to the requirements.txt file)
-### To configure end-to-end testing and unit testing dependencies:
+### To Configure End-to-End Testing and Unit Testing Dependencies:
   1. [Install and configure pytest](https://docs.pytest.org/en/stable/getting-started.html)
   2. [Install and configure Playwright for Python](https://playwright.dev/python/docs/intro)
 
