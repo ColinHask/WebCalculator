@@ -33,6 +33,12 @@ body{
     margin-right: 0; /* Align to the right edge */
     box-sizing: border-box; /* Ensure width includes padding and border */
 }
+.tank{
+    width: 98%;
+    height: 300px;
+    border: 1.5px #000000 solid;
+    border-radius: 5px;
+}
 p{
     border: 2px #eee solid;
     background: #FFECD7;
